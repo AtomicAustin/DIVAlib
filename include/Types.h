@@ -21,6 +21,42 @@ namespace
 		}
 		return out;
 	}
+
+	std::string stripSpaces(std::string in) 
+	{
+		if (in == "") {
+			return "";
+		}
+		
+		//erase all spaces before and after "in"
+		int first = 0;
+		for (int i = 0; i < in.length(); i++) {
+			if (in[i] != ' ')
+			{
+				first = i;
+				break;
+			}
+		}
+
+		if (first != 0) {
+			in.erase(0, first);
+		}
+
+		for (int i = in.length() - 1; i >= 0; i--)
+		{
+			if (in[i] != ' ')
+			{
+				first = i + 1;
+				break;
+			}
+		}
+
+		if (first != in.length()) {
+			in.erase(first, in.length() - first);
+		}
+
+		return in;
+	}
 }
 
 namespace spltr
@@ -59,6 +95,8 @@ struct Input_Package
 	std::vector <std::string> m_query;
 	std::string filename = "NOFILENAME";
 	std::string filetype = "NOFILETYPE";
+	std::string delimiter = "*";
+	std::string filepath = "NOPATH";
 };
 
 struct Index

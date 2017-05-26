@@ -2,7 +2,7 @@
 ***        D.I.V.A.LIB Color Mode - Beta        ***
 *** Austin Herman - austin.herman@valvoline.com ***
 ***     Updated:                                ***
-***                                             ***
+*** 5/2/2017 - added overide with no newline    ***
 **************************************************/
 
 #ifndef COLORMODE_H
@@ -18,6 +18,8 @@ class ColorMode
         ColorMode();
 		//COLOR, OUTPUT
         void ovrd_color(std::string, std::string);
+		//COLOR, OUTPUT, NEWLINE BOOL
+		void ovrd_color(std::string, std::string, bool);
         void setHandles();
         void setColor(std::string);
         int findColor(std::string);
@@ -28,14 +30,6 @@ class ColorMode
         const std::string cName[7] =
         {"BLUE","GREEN","CYAN",
         "RED","PURPLE","YELLOW", "WHITE"};
-		//BLUE - System questions
-		//GREEN - Formatting
-		//CYAN - User input
-		//RED - Errors
-		//PURPLE - Home messages
-		//YELLOW - System output
-		//WHITE - Non-DIVA output
-
 
         HANDLE m_stdin;
         HANDLE m_stdout;

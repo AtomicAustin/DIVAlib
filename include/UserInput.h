@@ -2,7 +2,7 @@
 ***        D.I.V.A.LIB User Input - Beta        ***
 *** Austin Herman - austin.herman@valvoline.com ***
 ***     Updated:                                ***
-***                                             ***
+*** 5/8/2017 - added delimiter setter           ***
 **************************************************/
 
 #pragma once
@@ -33,6 +33,8 @@ public:
 	void storeQuery(std::string);
 	void storeFileName(std::string);
 	void storeFileType(std::string);
+	void storeDelimiter(std::string);
+	void storeFilepath(std::string);
 	std::string getfullStr();
 	void setfullStr(std::string);
 	void setPackCount(int);
