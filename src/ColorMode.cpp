@@ -23,10 +23,22 @@ void ColorMode::ovrd_color(std::string M_COLOR, std::string M_OUTPUT)
 
     setColortoPrev();
 }
+void ColorMode::ovrd_color(std::string M_COLOR, std::string M_OUTPUT, bool newline)
+{
+	setHandles();
+	SetConsoleTextAttribute(m_stdout, findColor(M_COLOR));
+
+	std::cout << M_OUTPUT;
+	if (newline) {
+		std::cout << std::endl;
+	}
+
+	setColortoPrev();
+}
 int ColorMode::findColor(std::string COLOR)
 {
     if(COLOR == "WHITE"){
-        resetColor();
+        return 7;
     }
 
     for(int i = 0; i < 6; i ++)
@@ -75,5 +87,5 @@ void ColorMode::resetColor()
     cur_color = -1;
 
     FlushConsoleInputBuffer(m_stdin);
-    SetConsoleTextAttribute(m_stdout, buff.wAttributes);
+    SetConsoleTextAttribute(m_stdout, 7);
 }

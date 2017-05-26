@@ -33,6 +33,14 @@ void Finder_Input::storeFileType(std::string in)
 {
 	pack.filetype = in;
 }
+void Finder_Input::storeDelimiter(std::string in)
+{
+	pack.delimiter = in;
+}
+void Finder_Input::storeFilepath(std::string in)
+{
+	pack.filepath = in;
+}
 std::string Finder_Input::getfullStr()
 {
 	return full_str;
